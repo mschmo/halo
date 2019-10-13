@@ -33,12 +33,12 @@ class HaloNotebook(Halo):
     def clear(self):
         if not self.enabled:
             return self
-
-        with self.output:
-            self.output.outputs += self._output('\r')
-            self.output.outputs += self._output(self.CLEAR_LINE)
-
-        self.output.outputs = self._output()
+        self.output.clear_output(wait=True)
+        # with self.output:
+        #     self.output.outputs += self._output('\r')
+        #     self.output.outputs += self._output(self.CLEAR_LINE)
+        #
+        # self.output.outputs = self._output()
         return self
 
     def _render_frame(self):
@@ -106,5 +106,5 @@ class HaloNotebook(Halo):
             (symbol, text)
         ][0])
 
-        with self.output:
-            self.output.outputs = self._output(output)
+        # with self.output:
+        self.output.outputs = self._output(output)
